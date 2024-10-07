@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-5.7.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+
+	<!-- Bean 설정 -->
+	<bean id="customAccessDeniedHandler" class="org.zerock.myapp.security.CustomAccessDeniedHandler"/>
+	<bean id="customLoginSuccessHandler" class="org.zerock.myapp.security.CustomLoginSuccessHandler"/>
+	<bean id="customLogoutSuccessHandler" class="org.zerock.myapp.security.CustomLogoutSuccessHandler"/>
+
+
+	<!-- (***주의***) 아래의 두 개의 태그(<sec:http>, <sec:authentication-manager>) 는 최소한의 구성으로 반드시 포함해야 함. -->
+		
+
+	<!-- ==== 1. <sec:http> 태그는 지정된 pattern에 대한 접근권한(Authorization)의 설정 목적 ==== -->
+		
+	<sec:http auto-config="true" use-expressions="true">
+		<!-- <sec:intercept-url> 태그의 access 속성값의 기본형식은 표현식(expression) 입니다. -->
+
+		<!-- ==================================================================== -->
+
+		<!-- access 속성값의 형식을 표현식(expression) 형식으로 하는 경우, 아래와 같이 할 수 있습니다. -->
+		<sec:intercept-url pattern="/sample/all" access="permitAll" />
+		<sec:intercept-url pattern="/sample/member" access="hasRole('ROLE_MEMBER')"/>
+		<sec:intercept-url pattern="/sample/admin" access="hasRole('ROLE_ADMIN')"/>
+
+
+		<!-- access 속성값의 형식을 표현식(expression) 아니라, "권한명" 형식으로 하는 경우, 아래와 같이 할 수 있습니다. -->
+		<!-- <sec:intercept-url pattern="/sample/member" access="ROLE_MEMBER" />
+		<sec:intercept-url pattern="/sample/admin" access="ROLE_ADMIN" /> -->
+
+		<!-- ==================================================================== -->
+
+		<!-- 1. Request Forwarding 방식 -->
+		<!-- <sec:access-denied-handler error-page="/accessDenied" /> -->
+
+		<!-- 2. Redirection 방식 -->
+		<sec:access-denied-handler ref="customAccessDeniedHandler"/>
+
+		<!-- ==================================================================== -->
+
+		<!-- 1. Spring Security 가 기본제공하는 로그인 화면 제공 -->
+		<!-- <sec:form-login /> -->
+
+		<!-- 2. 개발자가 직접 만든 로그인 화면 이용 -->
+		<sec:form-login
+			login-page="/customLogin"
+			authentication-success-handler-ref="customLoginSuccessHandler"/>	<!-- 로그인 성공시, 핸들러 지정 -->
+			
+
+		<!-- ==================================================================== -->
+
+		<!-- 기본값(false) : CSRF token 생성 비활성화 하지 않음 -->
+		<sec:csrf disabled="false" />
+			
+
+		<!-- ==================================================================== -->
+
+		<sec:logout
+			logout-url="/customLogout"
+			invalidate-session="true"
+			success-handler-ref="customLogoutSuccessHandler"/>
+		
+	</sec:http>
+
+
+	<!-- ==== 2. <sec:authentication-manager> 태그는 인증정보(authentication + privileges) 설정 목적 ==== -->
+
+	<sec:authentication-manager>
+
+		<sec:authentication-provider>
+
+			<sec:user-service>
+
+				<sec:user name="member" password="{noop}member" authorities="ROLE_MEMBER" />
+
+				<!-- 한 사용자에 여러 권한 할당 가능 -->
+				<sec:user name="admin" password="{noop}admin" authorities="ROLE_ADMIN, ROLE_MEMBER" />
+
+			</sec:user-service>
+
+		</sec:authentication-provider>
+
+	</sec:authentication-manager>
+	
+
+</beans>

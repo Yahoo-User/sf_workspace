@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<Context>
+
+    <Resource
+        name="jdbc/ShareOracleCloud"
+        auth="Container"
+        type="javax.sql.DataSource"
+        username="ADMIN"
+        password="Oracle12345!!!"
+        driverClassName="oracle.jdbc.OracleDriver"
+        url="jdbc:oracle:thin:@atp20191201_high?TNS_ADMIN=C:/opt/OracleCloudWallet/ATP"
+        maxTotal="20"
+        maxIdle="10"
+        maxWaitMillis="-1"/>
+
+    <Resource
+        name="jdbc/ShareOracleCloudUsingDriverSpy"
+        auth="Container"
+        type="javax.sql.DataSource"
+        username="ADMIN"
+        password="Oracle12345!!!"
+        driverClassName="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+        url="jdbc:log4jdbc:oracle:thin:@atp20191201_high?TNS_ADMIN=C:/opt/OracleCloudWallet/ATP"
+        maxTotal="20"
+        maxIdle="10"
+        maxWaitMillis="-1"/>
+        
+</Context>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tutorials>
+
+    <tutorial seq="1">
+        <title>Rev</title>
+        <description>Drain R Low Leg Subcu/Fascia w Drain Dev, Perc</description>
+        <date>2/1/2022</date>
+
+        <author attr1="val1" attr2="val2">NEW AUTHOR</author>
+    </tutorial>
+
+    <tutorial seq="2">
+        <title>Dr</title>
+        <description>Remove Monitor Dev from Low Intest Tract, Perc Endo</description>
+        <date>4/17/2022</date>
+
+        <author attr1="val1" attr2="val2">NEW AUTHOR</author>
+    </tutorial>
+
+    <tutorial seq="3">
+        <title>Dr</title>
+        <description>Supplement R Low Extrem Bursa/Lig w Nonaut Sub, Open</description>
+        <date>7/16/2021</date>
+
+        <author attr1="val1" attr2="val2">NEW AUTHOR</author>
+    </tutorial>
+
+    <tutorial seq="4">
+        <title>Ms</title>
+        <description>Alteration of Right Breast with Nonaut Sub, Extern Approach</description>
+        <date>2/2/2022</date>
+
+        <author attr1="val1" attr2="val2">NEW AUTHOR</author>
+    </tutorial>
+
+    <tutorial seq="5">
+        <title>Mrs</title>
+        <description>Plain Radiography of Nasopharynx/Oropharynx</description>
+        <date>7/11/2021</date>
+
+        <author attr1="val1" attr2="val2">NEW AUTHOR</author>
+    </tutorial>
+
+    <tutorial seq="6">
+        <title>Mr</title>
+        <description>Insertion of Stimulator Lead into Low Muscle, Perc Approach</description>
+        <date>1/27/2022</date>
+
+        <author attr1="val1" attr2="val2">NEW AUTHOR</author>
+    </tutorial>
+
+    <tutorial seq="7">
+        <title>Mrs</title>
+        <description>Detachment at Left 2nd Toe, Complete, Open Approach</description>
+        <date>11/1/2021</date>
+
+        <author attr1="val1" attr2="val2">NEW AUTHOR</author>
+    </tutorial>
+
+    <tutorial seq="8">
+        <title>Mrs</title>
+        <description>Revision of Ext Fix in R Elbow Jt, Perc Approach</description>
+        <date>2/23/2022</date>
+
+        <author attr1="val1" attr2="val2">NEW AUTHOR</author>
+    </tutorial>
+
+    <tutorial seq="9">
+        <title>Ms</title>
+        <description>Replace of Papillary Muscle with Zooplastic, Open Approach</description>
+        <date>4/20/2022</date>
+
+        <author attr1="val1" attr2="val2">NEW AUTHOR</author>
+    </tutorial>
+
+    <tutorial seq="10">
+        <title>Ms</title>
+        <description>LDR Brachytherapy of Kidney using Iridium 192</description>
+        <date>4/27/2022</date>
+
+        <author attr1="val1" attr2="val2">NEW AUTHOR</author>
+    </tutorial>
+
+</tutorials>

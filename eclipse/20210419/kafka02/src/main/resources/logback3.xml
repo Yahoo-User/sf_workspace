@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy:MM:dd HH:mm:ss.SSS} %5level --- [%10.40thread] %logger{35} : %msg %n</pattern>
+        </encoder>
+    </appender>
+
+
+    <logger name="org.zerock.myapp" level="debug" additivity="false">
+        <appender-ref ref="consoleAppender"/>
+    </logger>
+
+    <logger name="org.springframework.boot" level="trace" additivity="false">
+        <appender-ref ref="consoleAppender"/>
+    </logger>
+
+    <logger name="org.apache.kafka" level="info" additivity="false">
+        <appender-ref ref="consoleAppender"/>
+    </logger>
+
+
+    <root level="warn">
+        <appender-ref ref="consoleAppender"/>
+    </root>
+
+</configuration>

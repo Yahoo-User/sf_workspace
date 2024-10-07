@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.zerock.myapp.mapper.TimeMapper">
+
+    
+    <!-- <select id="getTime2" resultType="string"> -->
+    <select id="getTime2" resultType="java.lang.String">
+        SELECT
+            current_date
+        FROM
+            dual
+    </select>
+
+    <select id="getTime3" resultType="java.sql.Timestamp">
+        SELECT
+            current_date
+        FROM
+            dual
+    </select>
+
+    <select id="getTime4" resultType="java.util.Date">
+        SELECT
+            current_date
+        FROM
+            dual
+    </select>
+
+
+</mapper>

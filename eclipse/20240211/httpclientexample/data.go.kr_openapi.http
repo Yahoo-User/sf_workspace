@@ -1,0 +1,136 @@
+
+# ===============================================================
+# 1. 예방접종센터 위치정보 API
+# ===============================================================
+#     - Base URL    : api.odcloud.kr/api
+#     - Request URI : /15077586/v1/centers
+#     - Protocol    : HTTP/HTTPS GET
+#     - Result Type : XML + JSON
+#     - Request Parameters:
+#         (1) page=1
+#         (2) perPage=10
+#         (3) returnType=JSON/XML
+#         (4) serviceKey=jjL6YFtClK%2FSGdnFNajmABTXLMsn55Qyfkp0WxKIJru20ZL3S5Tn1Seg%2B0aE7L3XdY8ResU3JwiaZLX%2FF%2B3dZA%3D%3D
+# ===============================================================
+
+
+GET https://api.odcloud.kr/api/15077586/v1/centers
+    ?page=1
+    &perPage=10
+    &returnType=JSON
+    &serviceKey=jjL6YFtClK%2FSGdnFNajmABTXLMsn55Qyfkp0WxKIJru20ZL3S5Tn1Seg%2B0aE7L3XdY8ResU3JwiaZLX%2FF%2B3dZA%3D%3D HTTP/1.1
+
+# -------
+
+GET http://api.odcloud.kr/api/15077586/v1/centers
+    ?page=2
+    &perPage=20
+    &returnType=XML
+    &serviceKey=jjL6YFtClK%2FSGdnFNajmABTXLMsn55Qyfkp0WxKIJru20ZL3S5Tn1Seg%2B0aE7L3XdY8ResU3JwiaZLX%2FF%2B3dZA%3D%3D
+
+# -------
+
+https://api.odcloud.kr/api/15077586/v1/centers
+    ?page=2
+    &perPage=15
+    &returnType=JSON
+    &serviceKey=jjL6YFtClK%2FSGdnFNajmABTXLMsn55Qyfkp0WxKIJru20ZL3S5Tn1Seg%2B0aE7L3XdY8ResU3JwiaZLX%2FF%2B3dZA%3D%3D
+
+
+# ===============================================================
+# 2. 환경부 국립환경과학원_미세먼지(금속성분) 실시간 정보
+# ===============================================================
+#     - Base URL    : apis.data.go.kr
+#     - Request URI : /1480523/MetalMeasuringResultService/MetalService
+#     - Protocol    : HTTP GET
+#     - Result Type : XML + JSON
+#     - Request Parameters:
+#         (1) serviceKey=jjL6YFtClK%2FSGdnFNajmABTXLMsn55Qyfkp0WxKIJru20ZL3S5Tn1Seg%2B0aE7L3XdY8ResU3JwiaZLX%2FF%2B3dZA%3D%3D
+#         (2) pageNo=1
+#         (3) numOfRows=10
+#         (4) resultType=JSON           [XML|JSON]
+#         (5) date=20171208             (YYYYMMDD)
+#         (6) stationcode=1
+#         (7) itemcode=90303
+#         (8) timecode=RH02
+# ===============================================================
+
+GET http://apis.data.go.kr/1480523/MetalMeasuringResultService/MetalService
+    ?serviceKey=jjL6YFtClK%2FSGdnFNajmABTXLMsn55Qyfkp0WxKIJru20ZL3S5Tn1Seg%2B0aE7L3XdY8ResU3JwiaZLX%2FF%2B3dZA%3D%3D
+    &pageNo=1
+    &numOfRows=10
+    &resultType=JSON
+    &date=20220214
+    &stationcode=1
+    &itemcode=90303
+    &timecode=RH02  HTTP/1.1
+
+# -------
+
+GET http://apis.data.go.kr/1480523/MetalMeasuringResultService/MetalService
+    ?serviceKey=jjL6YFtClK%2FSGdnFNajmABTXLMsn55Qyfkp0WxKIJru20ZL3S5Tn1Seg%2B0aE7L3XdY8ResU3JwiaZLX%2FF%2B3dZA%3D%3D
+    &pageNo=1
+    &numOfRows=10
+    &resultType=JSON
+    &date=20220214
+    &stationcode=1
+    &itemcode=90303
+    &timecode=RH02
+
+# -------
+
+http://apis.data.go.kr/1480523/MetalMeasuringResultService/MetalService
+    ?serviceKey=jjL6YFtClK%2FSGdnFNajmABTXLMsn55Qyfkp0WxKIJru20ZL3S5Tn1Seg%2B0aE7L3XdY8ResU3JwiaZLX%2FF%2B3dZA%3D%3D
+    &pageNo=1
+    &numOfRows=20
+    &resultType=XML
+    &date=20220213
+    &stationcode=1
+    &itemcode=90303
+    &timecode=RH02
+
+
+# ===============================================================
+# 3. 경찰청_교차로기반정보서비스
+# ===============================================================
+#     - Base URL    : apis.data.go.kr
+#     - Request URI : /1320000/CrossRoadInfoService/getCrossRoadInfoList
+#     - Protocol    : HTTP GET
+#     - Result Type : XML + JSON
+#     - Request Parameters:
+#         (1) serviceKey=jjL6YFtClK%2FSGdnFNajmABTXLMsn55Qyfkp0WxKIJru20ZL3S5Tn1Seg%2B0aE7L3XdY8ResU3JwiaZLX%2FF%2B3dZA%3D%3D
+#         (2) pageNo=1
+#         (3) numOfRows=10
+#         (4) type=json                 [xml|json]
+#         (5) srchCTid=L01
+#         (6) srchCRNm=시청입구
+# ===============================================================
+
+GET http://apis.data.go.kr/1320000/CrossRoadInfoService/getCrossRoadInfoList
+    ?serviceKey=jjL6YFtClK%2FSGdnFNajmABTXLMsn55Qyfkp0WxKIJru20ZL3S5Tn1Seg%2B0aE7L3XdY8ResU3JwiaZLX%2FF%2B3dZA%3D%3D
+    &pageNo=1
+    &numOfRows=100
+    &type=json
+    &date=20220102   HTTP/1.1
+
+# -------
+
+GET http://apis.data.go.kr/1320000/CrossRoadInfoService/getCrossRoadInfoList
+    ?serviceKey=jjL6YFtClK%2FSGdnFNajmABTXLMsn55Qyfkp0WxKIJru20ZL3S5Tn1Seg%2B0aE7L3XdY8ResU3JwiaZLX%2FF%2B3dZA%3D%3D
+    &pageNo=2
+    &numOfRows=100
+    &type=xml
+    &date=20220103
+
+# -------
+
+http://apis.data.go.kr/1320000/CrossRoadInfoService/getCrossRoadInfoList
+    ?serviceKey=jjL6YFtClK%2FSGdnFNajmABTXLMsn55Qyfkp0WxKIJru20ZL3S5Tn1Seg%2B0aE7L3XdY8ResU3JwiaZLX%2FF%2B3dZA%3D%3D
+    &pageNo=1
+    &numOfRows=100
+    &type=json
+    &date=20220104
+
+
+
+

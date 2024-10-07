@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<Context>
+
+    <!-- maxActive deprecated -->
+    <Resource
+        name="jdbc/OracleCloud" 
+        auth="Container"
+        type="javax.sql.DataSource"
+        username="HR"
+        password="Oracle12345678"
+        driverClassName="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+        url="jdbc:log4jdbc:oracle:thin:@atp20191201_high?TNS_ADMIN=C:/opt/OracleCloudWallet/ATP"
+        maxTotal="8"
+        maxIdle="2"
+        loginTimeout="1"
+    />
+
+</Context>

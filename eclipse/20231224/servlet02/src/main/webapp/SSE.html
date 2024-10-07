@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>SSE</title>
+
+    <script>
+
+        window.onload = function (e) {
+            console.clear();
+
+            console.group('window.onload invoked.')
+
+            console.log('+ e:', e)
+
+            var eventSource = new EventSource("/SSE")
+            // var eventSource = new EventSource("http://desktop-hdb0crd:8090/SSE")
+            // var eventSource = new EventSource("SSE.jsp")
+
+            console.log('+ eventSource:', eventSource)
+            console.log('+ type:', Object.prototype.toString.call(eventSource)) // [object EventSource]
+
+            //----------------------------------------//
+
+            eventSource.onopen = function (e) {
+                console.group("eventSource.onopen invoked.")
+                
+                console.log('+ OPENED, e:', e)
+
+
+                console.groupEnd()
+            } // onopen
+
+            eventSource.onmessage = function (e) {
+                console.group("eventSource.onmessage invoked.")
+                console.log('+ e:', e)
+
+                document.querySelector("#result").innerHTML += e.data +"<br>"
+                
+                console.groupEnd()
+            } // onmessage
+
+            eventSource.onerror = function (e) {
+                console.group("eventSource.onerror invoked.")
+
+                console.log('+ e:', e)
+                console.log(`+ resultValue: ${e.returnValue}`);
+
+                // document.querySelector("#result").innerHTML += e.returnValue + "<br>"
+                
+                console.groupEnd()
+            } // onerror
+
+
+            console.groupEnd()
+        } // onload
+
+    </script>
+</head>
+<body>
+    
+    <h1>SSE (Server-Sent Event)</h1>
+
+    <hr>
+
+    <div id="result"></div>
+
+</body>
+</html>

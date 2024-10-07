@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans:beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<mvc:annotation-driven />
+
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<!-- <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean> -->
+	
+	<mvc:view-resolvers>
+		<mvc:jsp prefix="/WEB-INF/views/" suffix=".jsp" />
+	</mvc:view-resolvers>
+
+	
+	<context:component-scan base-package="org.zerock.myapp.controller" 	/>
+	<context:component-scan base-package="org.zerock.myapp.exception"	/>
+
+	
+	<!-- ============================================================ -->
+	<!-- *** NOT any more required for spring *** -->
+	<!-- ============================================================ -->
+	<!-- Spring's multipart resolver -->
+	<!-- <beans:bean id="multipartResolver1" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" primary="true">
+		<beans:property name="defaultEncoding" value="utf8"/>
+		<beans:property name="maxUploadSize" value="10485760"/>						
+		<beans:property name="maxUploadSizePerFile" value="2097152"/>				
+		<beans:property name="uploadTempDir" value="file:/C:/temp/"/>
+		<beans:property name="maxInMemorySize" value="1048576"/>					
+		<beans:property name="preserveFilename" value="true"/>
+	</beans:bean> -->
+	
+
+	<!-- ============================================================ -->
+	<!-- Servlet 3.0 and above standard file upload -->
+	<!-- ============================================================ -->
+
+	<!-- Spring's multipart resolver using Standard servlet since servlet 3.0 -->
+	<beans:bean 
+		id="multipartResolver2"
+		class="org.springframework.web.multipart.support.StandardServletMultipartResolver"
+		primary="true" />
+	
+
+	<!-- To mapping view name with view controller without making controllers -->
+	<mvc:view-controller path="/uploadForm" 	view-name="uploadForm" 	status-code="200" />
+	<mvc:view-controller path="/uploadAjax" 	view-name="uploadAjax" 	status-code="200" />
+	
+</beans:beans>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>insertForm.html</title>
+</head>
+<body>
+    <h1>Emp 테이블에 데이터 저장 실습</h1>
+    <form action="EmpInsert" method="post">
+        <fieldset>
+            <legend>로그인폼</legend>
+            <ul>
+                <li>
+                    <label for="empno">사원아이디</label>
+                    <input type="text" name="empno" id="empno">
+                </li>
+                <li>
+                    <label for="ename">사원명</label>
+                    <input type="text" name="ename" id="ename">
+                </li>
+                <li>
+                    <label for="sal">급여</label>
+                    <input type="text" name="sal" id="sal">
+                </li>
+                <li>    
+                    <label for="deptno">부서명</label>
+                    <input type="text" name="deptno" id="deptno">
+                </li>
+                <li><input type="submit" value="저장"></li>
+            </ul>
+        </fieldset>
+    </form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    
+
+  <mappers>
+    <mapper resource="mappers/1/SQLMapper1.xml"/>
+    <mapper resource="mappers/2/SQLMapper2.xml"/>
+    <mapper resource="mappers/3/TimeMapper.xml"/>
+    <mapper resource="mappers/4/DyamicSQL.xml"/>
+    
+    <!-- <mapper class="org.zerock.myapp.mapper2.TimeMapper2"/> -->
+  </mappers>
+  
+</configuration>
